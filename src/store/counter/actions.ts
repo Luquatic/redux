@@ -4,36 +4,43 @@ import {
     INCREASE,
     IncreaseAction,
     DECREMENT,
-    DecrementAction
+    DecrementAction,
+    SET_VISIBILITY,
+    SetVisibilityAction
 } from './types';
 
-const increment = (payload: string): IncrementAction => {
+const increment = (): IncrementAction => {
     return {
         type: INCREMENT,
-        payload: payload
     };
 };
 
-const increase = (payload: string): IncreaseAction => {
+const increase = (payload: number): IncreaseAction => {
     return {
         type: INCREASE,
-        payload: payload
+        payload: payload,
     };
 };
 
-const decrement = (payload: string): DecrementAction => {
+const decrement = (): DecrementAction => {
     return {
         type: DECREMENT,
-        payload: payload
     };
 };
+
+const setVisibility = (): SetVisibilityAction => {
+    return {
+        type: SET_VISIBILITY
+    }
+}
 
 const counter = {
     increment,
     increase,
-    decrement
+    decrement,
+    setVisibility
 };
 
-export type CounterActionTypes = IncrementAction | IncreaseAction | DecrementAction;
+export type CounterActionTypes = IncrementAction | IncreaseAction | DecrementAction | SetVisibilityAction;
 
 export default counter;

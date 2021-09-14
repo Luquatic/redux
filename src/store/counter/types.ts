@@ -1,18 +1,21 @@
 export const INCREMENT = 'INCREMENT';
 export const INCREASE = 'INCREASE';
 export const DECREMENT = 'DECREMENT';
+export const SET_VISIBILITY = 'SET_VISIBILITY'
 
 export interface IncrementAction {
     type: typeof INCREMENT,
-    payload: string
 }
 
 export interface IncreaseAction {
     type: typeof INCREASE,
-    payload: string
+    payload: number
 }
 
 export interface DecrementAction {
     type: typeof DECREMENT,
-    payload: string
+}
+
+export interface SetVisibilityAction {
+    type: typeof SET_VISIBILITY,
 }

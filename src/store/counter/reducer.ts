@@ -1,24 +1,36 @@
 import {CounterActionTypes} from './actions';
 
-export type ProjectState = {
-    counter: number
+export type CounterState = {
+    value: number,
+    showCounter: boolean
 }
 
-const initialState: ProjectState = {
-    counter: 0
+const initialState: CounterState = {
+    value: 0,
+    showCounter: true
 };
 
-function counterReducer(state:ProjectState = initialState, action: CounterActionTypes): ProjectState {
+function counterReducer(state:CounterState = initialState, action: CounterActionTypes): CounterState {
     switch (action.type) {
         case 'INCREMENT':
             return {
                 ...state,
-                counter: state.counter + 1
+                value: state.value + 1
             };
+        case 'INCREASE':
+            return {
+                ...state,
+                value: state.value + action.payload
+            }
         case 'DECREMENT':
             return {
                 ...state,
-                counter: state.counter - 1
+                value: state.value - 1
+            }
+        case 'SET_VISIBILITY':
+            return {
+                ...state,
+                showCounter: !state.showCounter
             }
         default:
             return state;
